@@ -4,6 +4,10 @@ from client import Client
 credential = Credentials()
 
 def sign_up():
+
+    username_signup = ""
+    password_signup = ""
+
     print("----Sign up here----")
     username_valid = True
     while username_valid:
@@ -19,8 +23,8 @@ def sign_up():
         want_sys_password = input("Want system generated password? (Yes/No): ")
         if want_sys_password == "Yes":
             want_password_valid = False
-            your_password = credential.gene_password()
-            print("Your password: "+your_password)
+            password_signup = credential.gene_password()
+            print("Your password: "+password_signup)
         elif want_sys_password == "No":
             password_signup = input("Password (at least 5 chars): ")
             password_confirm = input("Confirm password: ")
@@ -38,6 +42,8 @@ def sign_up():
             print("Invalid choice. Choose Yes/No")
             want_password_valid = True
 
+    new_user=User(username_signup,password_signup)
+    new_user.add_user(new_user)
 
 def login():
     print("----Login Here----")
