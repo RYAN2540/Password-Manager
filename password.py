@@ -30,5 +30,3 @@ class Password:
         pyperclip.copy(sys_password)
         return sys_password
 
-#obj = Credentials()
-#print(obj.gen_password())

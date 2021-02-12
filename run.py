@@ -71,7 +71,6 @@ def login():
 
 def account_menu(this_user_name, this_user_object):
     print("*"*45)
-    # print(" ")
     print(f'WELCOME TO YOUR ACCOUNT, {this_user_name.upper()}')
     print("Options menu")
     print("1. Add existing credential - press 1")
@@ -80,7 +79,6 @@ def account_menu(this_user_name, this_user_object):
     print("4. Copy username & password - press 4")
     print("5. Delete saved credential - press 5")
     print("6. Log out                 - press 6")
-
 
     is_selected=True
     while is_selected:
