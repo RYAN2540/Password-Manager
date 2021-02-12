@@ -1,4 +1,4 @@
-from client.py import client
+import client
 import string
 import random
 class Credentials:
@@ -11,11 +11,7 @@ class Credentials:
     password_chars.extend(password_nums)
     password_chars.extend(password_symbols)
 
-
-    def gene_password(self):
-        sys_password = "".join(random.sample(self.password_chars, k=10))
+    @classmethod
+    def gene_password(cls):
+        sys_password = "".join(random.sample(cls.password_chars, k=10))
         return sys_password
-
-
-obj=Credentials()
-print(obj.gene_password())
