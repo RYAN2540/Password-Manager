@@ -38,5 +38,14 @@ class AppTest(unittest.TestCase):
         other_user_object.add_user(other_user_object)      
         self.assertEqual(len(Client.users_list),2)
 
+    def test_check_login(self):
+        self.user_obj.add_user(self.user_obj)
+        self.assertTrue(self.user_obj.check_login("Ryan", "brian56005"))
+
+    def test_return_user(self):
+        self.user_obj.add_user(self.user_obj)
+        self.assertEqual(Client.return_user("Ryan", "brian56005"), self.user_obj)
+
+
 if __name__=='__main__':
     unittest.main()
