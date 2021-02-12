@@ -1,5 +1,6 @@
 import string
 import random
+import pyperclip
 class Password:
 
     password_letters = list(string.ascii_letters)
@@ -13,6 +14,7 @@ class Password:
     @classmethod
     def gene_password(cls):
         sys_password = "".join(random.sample(cls.password_chars, k=10))
+        pyperclip.copy(sys_password)
         return sys_password
 #obj = Credentials()
 #print(obj.gen_password())
