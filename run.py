@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.9
-from credentials import Credentials
+from password import Password
 from client import Client
-credential = Credentials()
+password_obj = Password()
 
 def sign_up():
 
@@ -24,7 +24,7 @@ def sign_up():
         want_sys_password = input("Want system generated password? (Yes/No): ")
         if want_sys_password == "Yes":
             want_password_valid = False
-            password_signup = credential.gene_password()
+            password_signup = password_obj.gene_password()
             print("Sign up successful")
             print("Your password: "+password_signup)
         elif want_sys_password == "No":
@@ -65,9 +65,48 @@ def login():
         if login_valid:
             print("Login successful!")
             is_login=False
+            account_menu(username_login)
         else:
             print("Login unsuccessful. Try again.")
             is_login=True
+
+def account_menu(this_user):
+    print("\n")
+    print(f'WELCOME TO YOUR ACCOUNT, {this_user.upper()}')
+    print("What do you want to do?")
+    print("1. Add existing credential - press 1")
+    print("2. Create new credential   - press 2")
+    print("3. View saved credentials  - press 3")
+    print("4. Delete saved credential - press 4")
+    print("5. Log out                 - press 5")
+    print("6. Exit application        - press 6")
+    print("\n")
+
+    is_selected=True
+    while is_selected:
+        selected=input("Press option: ")
+        if selected=="1":
+            is_selected=False
+            Credential.add_credential()
+        elif selected=="2":
+            is_selected=False
+            Credential.create_credential()
+        elif selected=="3":
+            is_selected=False
+            Credential.view_credentials()
+        elif selected=="4":
+            is_selected=False
+            Credential.delete_credential()
+        elif selected=="5":
+            is_selected=False
+            logout()
+        elif selected=="6":
+            is_selected=False
+            exit_app()
+        else:
+            print("Invalid option. Try again.")
+            is_selected=True
+
 
 def main():
     print("PASSWORD MANAGER")
