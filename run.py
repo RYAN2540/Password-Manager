@@ -26,6 +26,7 @@ def sign_up():
         if want_sys_password == "Yes":
             want_password_valid = False
             password_signup = password_obj.gene_password()
+            print("Your password: "+password_signup+" (copied to clipboard)")
             print("Sign up successful")
             print("Your password: "+password_signup)
         elif want_sys_password == "No":
@@ -76,8 +77,9 @@ def account_menu(this_user_name, this_user_object):
     print("1. Add existing credential - press 1")
     print("2. Create new credential   - press 2")
     print("3. View saved credentials  - press 3")
-    print("4. Delete saved credential - press 4")
-    print("5. Log out                 - press 5")
+    print("4. Copy username & password - press 4")
+    print("5. Delete saved credential - press 5")
+    print("6. Log out                 - press 6")
 
 
     is_selected=True
@@ -95,11 +97,15 @@ def account_menu(this_user_name, this_user_object):
             this_user_object.credential.view_credentials()
         elif selected=="4":
             is_selected = True
-            this_user_object.credential.delete_credential()
+            this_user_object.credential.copy_credential()
         elif selected=="5":
+            is_selected = True
+            this_user_object.credential.delete_credential()
+        elif selected=="6":
             is_selected = False
             logout()
             print("LOGGED OUT.")
+            print(" ")
         else:
             print("Invalid option. Try again.")
             is_selected=True
