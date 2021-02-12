@@ -1,4 +1,3 @@
-import client
 import string
 import random
 class Password:
@@ -15,3 +14,6 @@ class Password:
     def gene_password(cls):
         sys_password = "".join(random.sample(cls.password_chars, k=10))
         return sys_password
+#obj = Credentials()
+#print(obj.gen_password())
+#print(obj.gen_password())

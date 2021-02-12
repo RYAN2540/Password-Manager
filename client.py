@@ -1,4 +1,4 @@
-from credentials import Credentials
+import credentials
 class Client:
 
     users_list = []
@@ -6,7 +6,7 @@ class Client:
     def __init__ (self, username, password):
         self.username = username
         self.password = password
-        self.credential = Credentials()
+        self.credential = credentials.Credentials()
 
     @classmethod
     def add_user(cls, new_user):
