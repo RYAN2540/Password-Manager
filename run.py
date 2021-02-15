@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.9
-import Password
-import Client
+import password
+import client
 
 password_obj = password.Password()
 
@@ -60,7 +60,7 @@ def login():
     '''
     is_login=True
     while is_login:
-        print("\")
+        print(" ")
         print("-----Log in here-----")
         username_login = input("Username: ")
         password_login = input("Password: ")
@@ -149,6 +149,6 @@ def main():
     print("----BYE----")
 
 
-if __name__ == "__main":
+if __name__ == "__main__":
     main ()
 
